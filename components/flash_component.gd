@@ -2,6 +2,8 @@
 class_name FlashComponent
 extends Node
 
+@export var flash_material : Resource
+
 # The flash component uses a flash material. I chose to preload this into a constant
 # But you could also export a material instead to allow the component to use a variety
 # of different materials

@@ -1,15 +1,13 @@
-[gd_scene load_steps=22 format=3 uid="uid://yjikiewb88uc"]
+[gd_scene load_steps=13 format=3 uid="uid://yjikiewb88uc"]
 
 [ext_resource type="Texture2D" uid="uid://dieedawd5mqpc" path="res://assets/ship.png" id="1_fxp62"]
 [ext_resource type="Script" path="res://player_ship/ship.gd" id="1_nqiv4"]
 [ext_resource type="Script" path="res://components/move_component.gd" id="2_otyed"]
 [ext_resource type="Script" path="res://components/move_input_component.gd" id="3_0sa13"]
-[ext_resource type="Texture2D" uid="uid://mws8c8oq2dvl" path="res://assets/ship_flame.png" id="3_y3efo"]
 [ext_resource type="Resource" uid="uid://dkkn4xmtfj3kj" path="res://player_ship/ship_move_stats.tres" id="4_tniho"]
 [ext_resource type="Script" path="res://components/position_clamp_component.gd" id="5_c5phf"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="7_c6isx"]
 [ext_resource type="PackedScene" uid="uid://cw01joioktgkj" path="res://player_ship/laser.tscn" id="8_xyixs"]
-[ext_resource type="Script" path="res://components/scale_component.gd" id="9_krxoh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qcxh5"]
 atlas = ExtResource("1_fxp62")
@@ -50,78 +48,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5j3qo"]
-atlas = ExtResource("3_y3efo")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_40s0o"]
-atlas = ExtResource("3_y3efo")
-region = Rect2(16, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3c1j6"]
-atlas = ExtResource("3_y3efo")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aw7gb"]
-atlas = ExtResource("3_y3efo")
-region = Rect2(0, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_htt7q"]
-atlas = ExtResource("3_y3efo")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0sddk"]
-atlas = ExtResource("3_y3efo")
-region = Rect2(32, 16, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_i4dnc"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5j3qo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_40s0o")
-}],
-"loop": true,
-"name": &"center",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3c1j6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aw7gb")
-}],
-"loop": true,
-"name": &"left",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_htt7q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0sddk")
-}],
-"loop": true,
-"name": &"right",
-"speed": 10.0
-}]
-
 [node name="Ship" type="Node2D"]
 script = ExtResource("1_nqiv4")
 
-[node name="Anchor" type="Node2D" parent="."]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Anchor"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xs78h")
-animation = &"center"
-
-[node name="FlameAnimatedSprite" type="AnimatedSprite2D" parent="Anchor"]
-position = Vector2(0, 16)
-sprite_frames = SubResource("SpriteFrames_i4dnc")
 animation = &"center"
 
 [node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
@@ -151,9 +82,3 @@ scene = ExtResource("8_xyixs")
 [node name="FireRateTimer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
-
-[node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
-script = ExtResource("9_krxoh")
-sprite = NodePath("../Anchor")
-scale_amount = Vector2(1.1, 1.1)
-scale_duration = 0.5
