@@ -19,9 +19,9 @@ func fire_lasers() -> void:
 	scale_component.tween_scale()
 	
 func _process(delta : float) -> void:
-	animateShip()
+	animate_the_ship()
 	
-func animateShip() -> void:
+func animate_the_ship() -> void:
 	if move_component.velocity.x < 0:
 		animated_sprite_2d.play("roll_left")
 		flame_animated_sprite.play("left")
