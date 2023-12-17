@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5eln084deexh"]
+
+[ext_resource type="PackedScene" uid="uid://betrbjvjdttda" path="res://Enemies/enemy.tscn" id="1_4ex37"]
+[ext_resource type="Texture2D" uid="uid://buoevrwj2qto1" path="res://assets/PNG/Enemies/enemyGreen1.png" id="2_fm1t5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_utmqn"]
+size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c0ip4"]
+
+[node name="GreenEnemy" instance=ExtResource("1_4ex37")]
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_fm1t5")
+
+[node name="MoveComponent" parent="." index="2"]
+velocity = Vector2(0, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+shape = SubResource("RectangleShape2D_utmqn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("CircleShape2D_c0ip4")
