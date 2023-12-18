@@ -6,5 +6,6 @@ class_name OnetimeAnimatedEffect
 extends AnimatedSprite2D
 
 func _ready() -> void:
-	# Free this node when the animation is finished
+	# Free this node when the animation is finished even if set in a neverending loop
 	animation_finished.connect(queue_free)
+	animation_looped.connect(queue_free)
