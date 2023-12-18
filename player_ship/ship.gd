@@ -5,7 +5,7 @@ extends Node2D
 @onready var spawner_component: SpawnerComponent = $SpawnerComponent as SpawnerComponent
 @onready var fire_rate_timer: Timer = $FireRateTimer
 @onready var scale_component: ScaleComponent = $ScaleComponent as ScaleComponent
-@onready var muzzle_flash : CPUParticles2D = $MuzzleFlash as CPUParticles2D
+#@onready var muzzle_flash : CPUParticles2D = $MuzzleFlash as CPUParticles2D
 @onready var animated_sprite_2d = $Anchor/AnimatedSprite2D
 @onready var move_component : MoveComponent = $MoveComponent as MoveComponent
 @onready var flame_animated_sprite = $Anchor/FlameAnimatedSprite

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://yjikiewb88uc" path="res://player_ship/ship.tscn" id="1_pu22v"]
 [ext_resource type="PackedScene" uid="uid://dign2nkin2k5" path="res://effects/space_background.tscn" id="2_0jv8f"]
-[ext_resource type="PackedScene" uid="uid://b5eln084deexh" path="res://Enemies/green_enemy.tscn" id="3_hwvax"]
+[ext_resource type="PackedScene" uid="uid://cb2giul65b0v1" path="res://Enemies/enemy_generator.tscn" id="3_mp3pr"]
 
 [node name="World" type="Node2D"]
 
@@ -11,8 +11,4 @@ position = Vector2(80, 216)
 
 [node name="SpaceBackground" parent="." instance=ExtResource("2_0jv8f")]
 
-[node name="GreenEnemy" parent="." instance=ExtResource("3_hwvax")]
-position = Vector2(41, 61)
-
-[node name="GreenEnemy2" parent="." instance=ExtResource("3_hwvax")]
-position = Vector2(127, 51)
+[node name="EnemyGenerator" parent="." instance=ExtResource("3_mp3pr")]
