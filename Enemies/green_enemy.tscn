@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5eln084deexh"]
+[gd_scene load_steps=6 format=3 uid="uid://b5eln084deexh"]
 
 [ext_resource type="PackedScene" uid="uid://betrbjvjdttda" path="res://Enemies/enemy.tscn" id="1_4ex37"]
 [ext_resource type="Texture2D" uid="uid://buoevrwj2qto1" path="res://assets/PNG/Enemies/enemyGreen1.png" id="2_fm1t5"]
+[ext_resource type="Script" path="res://components/hurt_component.gd" id="3_5fajx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utmqn"]
 size = Vector2(16, 16)
@@ -14,11 +15,23 @@ size = Vector2(16, 16)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_fm1t5")
 
+[node name="StatsComponent" parent="." index="1"]
+health = 3
+
 [node name="MoveComponent" parent="." index="2"]
 velocity = Vector2(0, 40)
+
+[node name="ScaleComponent" parent="." index="4"]
+scale_amount = Vector2(0.3, 0.3)
+original_scale = Vector2(0.2, 0.2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
 shape = SubResource("RectangleShape2D_utmqn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
 shape = SubResource("CircleShape2D_c0ip4")
+
+[node name="HurtComponent" type="Node" parent="." index="9" node_paths=PackedStringArray("stats_component", "hurtbox_component")]
+script = ExtResource("3_5fajx")
+stats_component = NodePath("../StatsComponent")
+hurtbox_component = NodePath("../HurtboxComponent")

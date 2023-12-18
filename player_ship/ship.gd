@@ -11,7 +11,7 @@ extends Node2D
 @onready var flame_animated_sprite = $Anchor/FlameAnimatedSprite
 
 func _ready() ->void:
-	#move_component.velocity.y = 0
+	move_component.velocity.y = 0
 	fire_rate_timer.timeout.connect(fire_lasers)
 
 func fire_lasers() -> void:
