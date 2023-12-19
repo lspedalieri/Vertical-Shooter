@@ -35,3 +35,6 @@ shape = SubResource("CircleShape2D_c0ip4")
 script = ExtResource("3_5fajx")
 stats_component = NodePath("../StatsComponent")
 hurtbox_component = NodePath("../HurtboxComponent")
+
+[node name="ScoreComponent" parent="." index="13"]
+adjust_amount = 10
