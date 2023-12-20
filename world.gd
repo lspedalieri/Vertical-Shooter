@@ -10,7 +10,8 @@ extends Node2D
 # signal score change
 # updates the score label
 
-func _ready():
+func _ready() -> void:
+	randomize()
 	update_score_label(game_stats.score)
 	game_stats.score_changed.connect(update_score_label)
 	ship.tree_exiting.connect(func():

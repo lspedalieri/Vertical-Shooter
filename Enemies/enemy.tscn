@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://betrbjvjdttda"]
+[gd_scene load_steps=17 format=3 uid="uid://betrbjvjdttda"]
 
 [ext_resource type="Script" path="res://Enemies/enemy.gd" id="1_onsjb"]
 [ext_resource type="Script" path="res://components/stats_component.gd" id="2_0q4qg"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://components/hurt_component.gd" id="13_fj5lx"]
 [ext_resource type="Script" path="res://components/score_component.gd" id="14_oqt6s"]
 [ext_resource type="Resource" uid="uid://cl1iendgoa1qr" path="res://game_stats.tres" id="15_ufqvf"]
+[ext_resource type="Script" path="res://components/border_bounce_component.gd" id="16_ddmrg"]
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_onsjb")
@@ -70,3 +71,8 @@ hurtbox_component = NodePath("../HurtboxComponent")
 [node name="ScoreComponent" type="Node" parent="."]
 script = ExtResource("14_oqt6s")
 game_stats = ExtResource("15_ufqvf")
+
+[node name="BorderBounceComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "move_component")]
+script = ExtResource("16_ddmrg")
+actor = NodePath("..")
+move_component = NodePath("../MoveComponent")
